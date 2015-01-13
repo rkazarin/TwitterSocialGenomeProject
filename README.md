@@ -11,3 +11,4 @@ Note: If the line ". ./setup-env.sh" for some reason doesn't run on your machine
 
 #SOLR Database instructions
 Some instructions for configuring the DB located here: https://github.com/ddrichman/solr-wikipedia-conf
+To run solr server: java -jar start.jar in (solr-dir)/example, go to localhost:8983/solr
