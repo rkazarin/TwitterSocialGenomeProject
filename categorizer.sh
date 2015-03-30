@@ -21,6 +21,8 @@ ${MAHOUT_HOME}/mahout lucene.vector \
 	--max 500
 
 touch ${WORK_DIR}/wiki-lucene-vec/tfidf-vectors/_SUCCESS
+
+${MAHOUT_HOME}/mahout seqdumper -i ${WORK_DIR}/wiki.seq ${WORK_DIR}/wiki.seq_human
 #exit
 #commented
 

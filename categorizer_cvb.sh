@@ -73,12 +73,13 @@ ${MAHOUT_HOME}/mahout cvb \
 	-dict ${WORK_DIR}/wiki.seq \
 	-mt ${WORK_DIR}/temp/models \
 	-dt ${WORK_DIR}/temp/topics \
-	-x 2 \
+	-x 10 \
 	-ow \
-	-k 4 \
+	-k 10 \
 	-nt $(mahout seqdumper -i output/seq2sparse_out/dictionary.file-0 | tail -1 | awk '{print $2}') 
 
-# View the topic distributions of each article
+# Viewing output based on: http://stackoverflow.com/questions/21318459/how-to-run-mahout-cvb-on-reuters-news-on-cloudera-vm-cdh4-5-as-lda-is-not-longer
+# 1) View the topic distributions of each article. All rticles with their probabilities of being a certain topic
 ${MAHOUT_HOME}/mahout vectordump \
     -i ${WORK_DIR}/temp/topics/part-m-00000 \
     -o ${WORK_DIR}/cvb_out/vectordump \
@@ -87,4 +88,12 @@ ${MAHOUT_HOME}/mahout vectordump \
     -dt sequencefile -sort ${WORK_DIR}/temp/topics/part-m-00000 \
     && \
   cat ${WORK_DIR}/cvb_out/vectordump
-	
+
+
+
+# ${MAHOUT_HOME}/mahout ldatopics \
+# 	-i output/temp/topics/part-m-00000 \
+# 	-d output/seq2sparse_out/dictionary.file-* \
+#     -dt sequencefile -sort output/temp/topics/part-m-00000
+
+# 	
